@@ -1,0 +1,68 @@
+name: barber
+deploymentScript: php artisan migrate --force && php artisan config:cache
+buildCommand: composer install --no-dev
+routes:
+  - handle: public/api/reservas/dia-actual
+    destination: backend:8000
+    methods: [GET]
+
+  - handle: public/api/reservas
+    destination: backend:8000
+    methods: [POST]
+
+  - handle: public/api/reservas/disponibilidad
+    destination: backend:8000
+    methods: [GET]
+
+  - handle: public/api/reservas1/dia-actual
+    destination: backend:8000
+    methods: [GET]
+
+  - handle: public/api/reservas1
+    destination: backend:8000
+    methods: [POST]
+
+  - handle: public/api/reservas1/disponibilidad
+    destination: backend:8000
+    methods: [GET]
+
+  - handle: public/api/reservas2/dia-actual
+    destination: backend:8000
+    methods: [GET]
+
+  - handle: public/api/reservas2
+    destination: backend:8000
+    methods: [POST]
+
+  - handle: public/api/reservas2/disponibilidad
+    destination: backend:8000
+    methods: [GET]
+
+  - handle: public/api/reservas3/dia-actual
+    destination: backend:8000
+    methods: [GET]
+
+  - handle: public/api/reservas3
+    destination: backend:8000
+    methods: [POST]
+
+  - handle: public/api/reservas3/disponibilidad
+    destination: backend:8000
+    methods: [GET]
+
+  - handle: public/api/comunicado
+    destination: backend:8000
+    methods: [POST]
+
+  - handle: public/api/comunicados
+    destination: backend:8000
+    methods: [GET]
+
+  - handle: public/api/comunicado/{id}
+    destination: backend:8000
+    methods: [DELETE]
+
+services:
+  - name: php
+    port: 8080
+    dockerfile: Dockerfile.php
